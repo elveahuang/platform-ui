@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vueexport-helper-1b428a4d.js";import{e as r,T as t}from"./index-ea5bc276.js";const n=e({},[["render",function(e,n){return r(),t("div",null,"WeChat")}]]);export{n as default};
