@@ -1,0 +1,1 @@
+System.register(["./index-legacy-af419fa3.js"],(function(e,i){"use strict";var t,s;return{setters:[e=>{t=e.bc,s=e.m}],execute:function(){e("C",new class{async initialize(){t.initialize().then((()=>{s("PlatformService initialize successfully.")}))}})}}}));
