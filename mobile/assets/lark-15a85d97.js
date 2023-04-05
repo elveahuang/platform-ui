@@ -1,0 +1,1 @@
+import{d as a,K as s,m as n,o as t,g as e,f as o,an as p}from"./index-38b8e56d.js";/* empty css              */const r={class:"app-page-content"},m=a({__name:"lark",setup:a=>(s((async()=>{n("Component - <<Lark>> is mounted.")})),(a,s)=>{const n=p;return t(),e("div",r,[o(n)])})});export{m as default};
