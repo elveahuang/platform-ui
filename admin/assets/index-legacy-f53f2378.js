@@ -1,0 +1,1 @@
+System.register(["./index-legacy-96c00248.js"],(function(e,t){"use strict";var n;return{setters:[e=>{n=e.bj}],execute:function(){e("d",(e=>n("/admin/dashboard",e))),e("w",(e=>n("/admin/workbench",e)))}}}));

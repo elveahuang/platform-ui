@@ -1,1 +1,0 @@
-import{_ as r}from"./plugin-vueexport-helper-1b428a4d.js";import{A as e,B as o}from"./index-b5d96581.js";const t=r({},[["render",function(r,t){return e(),o("div",null,"Poster")}]]);export{t as default};
