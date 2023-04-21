@@ -1,1 +1,0 @@
-System.register(["./index-legacy-96fa4dc3.js"],(function(e,t){"use strict";var i;return{setters:[e=>{i=e.bj}],execute:function(){e("d",(e=>i("/api/admin/dashboard",e))),e("w",(e=>i("/api/admin/workbench",e)))}}}));
