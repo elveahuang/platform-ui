@@ -1,0 +1,1 @@
+import{_ as r}from"./plugin-vueexport-helper-1b428a4d.js";import{J as e,K as o}from"./index-527a7af3.js";const n=r({},[["render",function(r,n){return e(),o("div",null,"Position")}]]);export{n as default};

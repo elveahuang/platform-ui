@@ -1,0 +1,1 @@
+System.register(["./plugin-vueexport-helper-legacy-762b7923.js","./index-legacy-443e7a99.js"],(function(e,t){"use strict";var r,n,u;return{setters:[e=>{r=e._},e=>{n=e.f,u=e.Y}],execute:function(){e("default",r({},[["render",function(e,t){return n(),u("div",null,"WeChat")}]]))}}}));

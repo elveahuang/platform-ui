@@ -1,1 +1,0 @@
-import{d as a,L as s,m as n,o,g as t,f as e,ao as p}from"./index-880bbb49.js";/* empty css              */const r={class:"app-page-content"},m=a({__name:"lark",setup:a=>(s((async()=>{n("Component - <<Lark>> is mounted.")})),(a,s)=>{const n=p;return o(),t("div",r,[e(n)])})});export{m as default};
