@@ -1,1 +1,0 @@
-import{d as s,o as t,g as e,f as o,j as a,R as i,k as l,M as n}from"./index-f8f57cae.js";import{N as r}from"./index-5a81ff98.js";const c=n("div",null,"Discover",-1),m=s({__name:"discover",setup:s=>(s,n)=>{const m=r;return t(),e(l,null,[o(m,{title:s.$t("common.title"),onClickLeft:a(i)},null,8,["title","onClickLeft"]),c],64)}});export{m as default};

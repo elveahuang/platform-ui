@@ -1,0 +1,1 @@
+import{d as a,o as s,g as e,f as t,j as d,N as i,M as n}from"./index-c0bed8fe.js";const o=n("div",{class:"text-center"},"404",-1),p=a({__name:"index",setup:a=>(a,n)=>(s(),e("div",null,[t(d(i),{icon:"ep:add-location",width:"36px",height:"36px"}),o]))});export{p as default};
