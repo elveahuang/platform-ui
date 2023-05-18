@@ -1,1 +1,0 @@
-System.register(["./index-legacy-e2732a2a.js"],(function(e,i){"use strict";var t,s;return{setters:[e=>{t=e.bd,s=e.m}],execute:function(){e("C",new class{async initialize(){t.initialize().then((()=>{s("PlatformService initialize successfully.")}))}})}}}));
