@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vueexport-helper-c27b6911.js";import{J as r,K as t}from"./index-b9c05cc4.js";const o={};function c(n,s){return r(),t("div",null,"Authority")}const f=e(o,[["render",c]]);export{f as default};
