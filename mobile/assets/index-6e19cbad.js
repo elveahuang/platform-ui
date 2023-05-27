@@ -1,0 +1,1 @@
+import{g as t,t as e,Q as n}from"./index-1f9f59e0.js";const d=t({name:"AnnouncementIndexPage",setup(){return()=>e("div",null,[e("div",{class:"text-center"},[n("ProductIndexPage")])])}});export{d as default};

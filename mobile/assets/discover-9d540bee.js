@@ -1,1 +1,0 @@
-import{d as t,o as a,g as n,f as s,j as r,R as c,k as l,M as i}from"./index-23bfd250.js";import{N as _}from"./index-47355bfe.js";const m=i("div",null,"Discover",-1),k=t({__name:"discover",setup(f){return(e,p)=>{const o=_;return a(),n(l,null,[s(o,{title:e.$t("common.title"),onClickLeft:r(c)},null,8,["title","onClickLeft"]),m],64)}}});export{k as default};

@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vueexport-helper-c27b6911.js";import{J as t,K as c}from"./index-b1242b8f.js";const n={};function r(o,a){return t(),c("div",null,"Attachment")}const f=e(n,[["render",r]]);export{f as default};
