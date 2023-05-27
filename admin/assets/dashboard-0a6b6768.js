@@ -1,1 +1,0 @@
-import{a6 as a,ah as e,at as t}from"./index-ae9b697b.js";const r=a({name:"ProductDetailsPage",setup(){return()=>e("div",null,[e("div",{class:"text-center"},[t("ProductDetailsPage")])])}});export{r as default};
