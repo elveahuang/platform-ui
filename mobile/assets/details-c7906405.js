@@ -1,1 +1,0 @@
-import{g as t,t as e,Q as a}from"./index-1c1fe63a.js";const o=t({name:"ProductDetailsPage",setup(){return()=>e("div",null,[e("div",{class:"text-center"},[a("ProductDetailsPage")])])}});export{o as default};
