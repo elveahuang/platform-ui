@@ -1,1 +1,0 @@
-import{d as t,p as e,N as d}from"./index-ceb4400b.js";const n=t({name:"ProductIndexPage",setup(){return()=>e("div",null,[e("div",{class:"text-center"},[d("ProductIndexPage")])])}});export{n as default};
