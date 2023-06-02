@@ -1,1 +1,0 @@
-import{d as t,c as e,b2 as a,a as o}from"./index-e075d2a6.js";const d=t({name:"401",setup(){return()=>e("div",null,[e(a,{icon:"ep:add-location",width:"36px",height:"36px"},null),e("div",{class:"text-center"},[o("About")])])}});export{d as default};
