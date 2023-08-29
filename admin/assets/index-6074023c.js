@@ -1,1 +1,0 @@
-import{d as a,c as e,a as t}from"./index-4d3b2731.js";const d=a({name:"ProductDetailsPage",setup(){return()=>e("div",null,[e("div",{class:"text-center"},[t("ProductDetailsPage")])])},render(){return e("div",null,[e("div",{class:"text-center"},[t("ProductDetailsPage")])])}});export{d as default};
