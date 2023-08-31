@@ -1,1 +1,0 @@
-import{E as t}from"./index-fc86c94f.js";import{d as a,c as e,a as o}from"./index-e5b1a226.js";const s=a({name:"ProductDetailsPage",setup(){return e("div",null,[e(t,{nativeType:"submit"},null),e("div",{class:"text-center"},[o("ProductDetailsPage")])])}});export{s as default};
