@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{o as t,c,a as o}from"./index-c2a4cd3f.js";const s={},n=o("div",{class:"text-center"},"Module Index Page",-1),r=[n];function a(_,d){return t(),c("div",null,r)}const f=e(s,[["render",a]]);export{f as default};
