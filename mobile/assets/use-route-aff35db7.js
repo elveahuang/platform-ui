@@ -1,0 +1,1 @@
+import{at as n}from"./index-f2ad0db4.js";const c={to:[String,Object],url:String,replace:Boolean};function a({to:t,url:e,replace:o,$router:r}){t&&r?r[o?"replace":"push"](t):e&&(o?location.replace(e):location.href=e)}function i(){const t=n().proxy;return()=>a(t)}export{a,c as r,i as u};
