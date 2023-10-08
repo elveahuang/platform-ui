@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{o as t,f as o,G as c}from"./index-6df61d04.js";const r={},s=c("div",{class:"text-center"},"Lark",-1),a=[s];function n(_,d){return t(),o("div",null,a)}const l=e(r,[["render",n]]);export{l as default};
