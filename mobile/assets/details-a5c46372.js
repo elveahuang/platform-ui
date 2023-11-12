@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{a as t,y as s,A as c}from"./index-59fdb514.js";const o={},a=c("div",{class:"text-center"},"ProductDetailsPage",-1),r=[a];function n(_,d){return t(),s("div",null,r)}const f=e(o,[["render",n]]);export{f as default};
