@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-x3n3nnut.js";import{a as t,y as s,B as c}from"./index-iPhMrcDo.js";const o={},a=c("div",{class:"text-center"},"ProductDetailsPage",-1),r=[a];function n(_,d){return t(),s("div",null,r)}const f=e(o,[["render",n]]);export{f as default};

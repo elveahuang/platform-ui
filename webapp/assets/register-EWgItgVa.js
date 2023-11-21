@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-x3n3nnut.js";import{e as t,g as o,k as r}from"./index-3tHm4Myj.js";const s={},c=r("div",{class:"text-center"},"WeWork",-1),n=[c];function _(a,i){return t(),o("div",null,n)}const l=e(s,[["render",_]]);export{l as default};
