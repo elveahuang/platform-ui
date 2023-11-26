@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-x3n3nnut.js";import{a as t,y as c,B as o}from"./index--LWaiaPj.js";const s={},r=o("div",{class:"text-center"},"Theme",-1),n=[r];function a(_,d){return t(),c("div",null,n)}const f=e(s,[["render",a]]);export{f as default};
