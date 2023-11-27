@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-x3n3nnut.js";import{a as t,y as c,B as o}from"./index-r_gE4c3h.js";const s={},a=o("div",{class:"text-center"},"WeChat",-1),r=[a];function n(_,d){return t(),c("div",null,r)}const l=e(s,[["render",n]]);export{l as default};
