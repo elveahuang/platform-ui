@@ -1,0 +1,1 @@
+import{ae as s}from"./index-bUmP8Zmg.js";const o=r=>s("/api/v1/register",r),e=r=>s("/api/v1/user/change-password",r),t=r=>s("/api/v1/forgot-password",r),p=r=>s("/api/v1/reset-password",r);export{p as a,e as c,t as f,o as r};
