@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-x3n3nnut.js";import{o as t,c,b as o}from"./index-NS3bFuoT.js";const r={},s=o("div",{class:"text-center"},"Redirect",-1),n=[s];function _(a,d){return t(),c("div",null,n)}const l=e(r,[["render",_]]);export{l as default};
