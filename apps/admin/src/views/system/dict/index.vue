@@ -1,0 +1,273 @@
+<template>
+    <app-page-header>
+        <template #title>{{ $t('common.dict_management') }}</template>
+    </app-page-header>
+
+    <a-card>
+        <data-table
+            ref="dataTableRef"
+            v-model:model="dataTableModel"
+            @getDataList="getDataList"
+            :row-selection-enabled="dataTableRowSelectionEnabled"
+            :tool-bar-enabled="true"
+        >
+            <template #toolBar>
+                <a-button type="primary" @click="showEntityFormModal(0)">{{ $t('common.button_add') }}</a-button>
+                <a-button @click="dataTableRowSelectionEnabled = !dataTableRowSelectionEnabled">
+                    {{ dataTableRowSelectionEnabled ? $t('common.label_batch_operation_cancel') : $t('common.label_batch_operation') }}
+                </a-button>
+                <a-button @click="handleDelete(0)">{{ $t('common.button_delete') }}</a-button>
+            </template>
+            <template #bodyCell="{ column, record }">
+                <template v-if="column.dataIndex === 'operation'">
+                    <a-space>
+                        <a-button type="primary" size="small" @click="showPreviewModal(record)">
+                            <template #icon>
+                                <app-icon icon="mdi:eye-outline" />
+                            </template>
+                        </a-button>
+                        <a-button type="primary" size="small" @click="showEntityFormModal(record.id)">
+                            <template #icon>
+                                <app-icon icon="ant-design:edit-outlined" />
+                            </template>
+                        </a-button>
+                        <router-link :to="{ path: '/dict/items', query: { typeId: record.id, title: record.title } }">
+                            <a-button type="primary" size="small">
+                                <template #icon>
+                                    <app-icon icon="ant-design:unordered-list-outlined" />
+                                </template>
+                            </a-button>
+                        </router-link>
+                        <a-popconfirm
+                            v-if="record['source'] !== 1"
+                            :title="$t('common.label_confirm_delete_record')"
+                            @confirm="handleDelete(record.id)"
+                        >
+                            <a-button danger type="primary" size="small">
+                                <template #icon>
+                                    <app-icon icon="ant-design:close-outlined" />
+                                </template>
+                            </a-button>
+                        </a-popconfirm>
+                    </a-space>
+                </template>
+            </template>
+        </data-table>
+    </a-card>
+
+    <a-modal
+        class="app-modal"
+        v-model:open="previewModalOpen"
+        :title="$t('common.label_preview')"
+        @ok="handlePreviewModalOk"
+        @cancel="handlePreviewModalCancel"
+    >
+        <a-card>
+            <div v-html="previewContentHtml"></div>
+        </a-card>
+    </a-modal>
+
+    <a-modal class="app-modal" v-model:open="entityFormModalOpen" :title="entityFormModalTitle" @ok="handleFormSubmit" @cancel="handleFormCancel">
+        <a-card>
+            <a-form
+                ref="entityForm"
+                :model="entityFormModel"
+                :rules="entityFormRules"
+                @finish="handleFormSubmit"
+                :label-col="{ span: 4 }"
+                :wrapper-col="{ span: 12 }"
+            >
+                <a-form-item name="code" :label="$t('common.field_code')">
+                    <a-input
+                        :readonly="entityFormModel['source'] === 1"
+                        :maxlength="100"
+                        v-model:value="entityFormModel['code']"
+                        :placeholder="t('common.field_code_placeholder')"
+                    />
+                </a-form-item>
+                <a-form-item name="title" :label="$t('common.field_title')">
+                    <a-input :maxlength="150" v-model:value="entityFormModel['title']" :placeholder="t('common.field_title_placeholder')" />
+                </a-form-item>
+                <a-form-item name="label" :label="$t('common.field_label')">
+                    <a-input :maxlength="150" v-model:value="entityFormModel['label']" :placeholder="t('common.field_title_placeholder')" />
+                </a-form-item>
+                <a-form-item name="description" :label="$t('common.field_description')">
+                    <a-textarea
+                        :maxlength="250"
+                        v-model:value="entityFormModel['description']"
+                        :placeholder="t('common.field_description_placeholder')"
+                    />
+                </a-form-item>
+            </a-form>
+        </a-card>
+    </a-modal>
+</template>
+
+<script setup lang="ts">
+import { useDataTable } from '@commons/core/utils/data-table.ts';
+import {
+    checkCodeApi,
+    CheckCodePayload,
+    dictEntityDeleteApi,
+    dictEntityDetailsApi,
+    dictEntityPageApi,
+    dictEntitySaveApi,
+} from '@commons/core/api/admin/dict.ts';
+import { onMounted, reactive, ref, Ref } from 'vue';
+import { log } from '@commons/core/utils';
+import { AppIcon, AppPageHeader, DataTable } from '@commons/webapp/components';
+import { useI18n } from 'vue-i18n';
+import type { FormInstance, Rule } from 'ant-design-vue/es/form';
+import { DictEntity } from '@commons/core/types/dict.ts';
+import { Key, R } from '@commons/core/types';
+import { isEmpty } from 'lodash-es';
+import { showMessage } from '@commons/webapp/utils';
+import { message } from 'ant-design-vue';
+
+const { t } = useI18n();
+// 数据列表
+const { initialize, handleResult, handleParams } = useDataTable();
+const dataTableColumns = [
+    {
+        title: t('common.field_code'),
+        dataIndex: 'code',
+        key: 'code',
+        width: 100,
+        sorter: true,
+    },
+    {
+        title: t('common.field_title'),
+        dataIndex: 'title',
+        key: 'title',
+        width: 180,
+        sorter: true,
+    },
+    {
+        title: t('common.field_label'),
+        dataIndex: 'label',
+        key: 'label',
+        width: 120,
+        ellipsis: true,
+    },
+    {
+        title: t('common.field_last_modified_at'),
+        dataIndex: 'lastModifiedAt',
+        key: 'lastModifiedAt',
+        width: 120,
+        sorter: true,
+        ellipsis: true,
+    },
+    {
+        title: t('common.label_action'),
+        dataIndex: 'operation',
+        key: 'operation',
+        width: 60,
+        ellipsis: true,
+        fixed: 'right',
+    },
+];
+const dataTableModel = reactive(initialize(dataTableColumns));
+const dataTableRef: Ref<typeof DataTable> = ref<typeof DataTable>();
+const dataTableRowSelectionEnabled: Ref<boolean> = ref<boolean>(false);
+const getDataList = async () => {
+    await dictEntityPageApi(handleParams(dataTableModel)).then((result) => {
+        handleResult(dataTableModel, result);
+    });
+};
+// 添加编辑
+const entityFormModalTitle = ref<string>('');
+const entityFormModalOpen = ref<boolean>(false);
+const entityForm: Ref<FormInstance> = ref<FormInstance>();
+let entityFormModel = reactive<DictEntity>(new DictEntity());
+const entityFormRules: Record<string, Rule[]> = {
+    code: [
+        {
+            validator: async (rule: Rule, payload: CheckCodePayload): Promise<void> => {
+                const result: R<Boolean> = await checkCodeApi({ ...payload });
+                if (result.code == '200' && result.data === true) {
+                    return Promise.resolve();
+                }
+                return Promise.reject();
+            },
+            message: t('common.dict_field_code_validation_check'),
+            transform: (value: string): CheckCodePayload => {
+                return { code: value, id: entityFormModel.id };
+            },
+        },
+    ],
+    title: [{ required: true, message: t('common.field_title_validation') }],
+    label: [{ required: true, message: t('common.field_label_validation') }],
+    description: [{ required: true, message: t('common.field_description_validation') }],
+};
+const showEntityFormModal = async (id?: number) => {
+    // 每次弹出表单，清空上一次的校验结果
+    entityForm.value?.clearValidate();
+    entityFormModalOpen.value = true;
+    if (id && id > 0) {
+        entityFormModalTitle.value = t('common.dict_pages_edit_title');
+        await dictEntityDetailsApi({ id: id }).then((result) => {
+            Object.assign(entityFormModel, { ...result.data });
+        });
+    } else {
+        Object.assign(entityFormModel, { ...new DictEntity() }); // 重置表单参数
+        entityFormModalTitle.value = t('common.dict_pages_add_title');
+    }
+};
+const handleFormCancel = () => {
+    entityFormModalOpen.value = false;
+};
+const handleFormSubmit = async () => {
+    await entityForm.value
+        .validate()
+        .then(async () => {
+            dictEntitySaveApi(entityFormModel).then((result) => {
+                if (result.code == '200') {
+                    entityFormModalOpen.value = false;
+                    dataTableRef.value.refresh();
+                }
+            });
+        })
+        .catch((e) => {
+            log(e);
+        });
+};
+// 删除
+const handleDelete = async (id: number = 0) => {
+    const ids: Key[] = id > 0 ? [id] : dataTableRef.value.selectedRowKeys();
+    if (isEmpty(ids)) {
+        showMessage({ message: t('common.label_please_select_one_record') }).then();
+    } else
+        dictEntityDeleteApi({ ids: ids }).then((result) => {
+            if (result.code == '200') {
+                entityFormModalOpen.value = false;
+                dataTableRef.value.refresh();
+            } else {
+                for (const key in result.data as Object) {
+                    if (result.data.hasOwnProperty(key)) {
+                        message.error(`${result.data[key]} - ${key}`);
+                    }
+                }
+            }
+        });
+};
+
+// 预览
+const previewModalOpen = ref<boolean>(false);
+const previewContentHtml = ref<string>('');
+const showPreviewModal = async (entity: DictEntity) => {
+    previewContentHtml.value = entity.description;
+    previewModalOpen.value = true;
+};
+const handlePreviewModalOk = async () => {
+    previewContentHtml.value = '';
+    previewModalOpen.value = false;
+};
+const handlePreviewModalCancel = async () => {
+    previewContentHtml.value = '';
+    previewModalOpen.value = false;
+};
+
+onMounted(async () => {
+    log('Page <<DictionaryAdminListPage>> mounted.');
+});
+</script>

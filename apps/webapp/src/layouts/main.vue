@@ -1,0 +1,66 @@
+<template>
+    <a-layout class="app-layout">
+        <a-layout-header class="app-layout-header">
+            <div class="app-layout-header-container">
+                <div class="app-layout-logo">
+                    <div class="logo">
+                        <span>{{ title }}</span>
+                    </div>
+                </div>
+                <div class="app-layout-nav">
+                    <app-header-menu />
+                </div>
+                <div class="app-layout-tools">
+                    <a-space size="middle">
+                        <dark-toggle />
+                        <theme-dropdown />
+                        <locale-dropdown />
+                        <app-avatar-dropdown />
+                    </a-space>
+                </div>
+            </div>
+        </a-layout-header>
+
+        <a-layout-content class="app-layout-content">
+            <div class="app-layout-content-container">
+                <router-view />
+            </div>
+        </a-layout-content>
+    </a-layout>
+</template>
+
+<script setup lang="ts">
+import { computed, onMounted } from 'vue';
+import { RouterView, useRoute, useRouter } from 'vue-router';
+import { log } from '@commons/core/utils';
+import { DarkToggle, LocaleDropdown, ThemeDropdown } from '@commons/webapp/components';
+import { useUserStore } from '@commons/core/store';
+import { settings } from '@/settings';
+import { getMenuItems, getMenuOpenKeys } from '@commons/core/utils/menu';
+import { menus } from '@/utils/menus';
+import { AppAvatarDropdown, AppHeaderMenu } from '@/layouts/components';
+
+const route = useRoute();
+const router = useRouter();
+const { isAuthenticated, user, logout } = useUserStore();
+const title = computed<string>(() => settings.app.getTitle());
+const siderMenuItems = computed(() => getMenuItems(menus));
+const openKeys = ref<string[]>(getMenuOpenKeys(menus, route.path));
+const selectedKeys = ref<string[]>([route.path]);
+const handleMenuChange = (path: string) => {
+    router.push(path);
+};
+const handleLogout = () => {
+    logout().then(() => {
+        router.push(settings.app.getLogoutSuccessUrl());
+    });
+};
+
+onMounted(() => {
+    log('Component - <<MainLayout>> is mounted.');
+});
+</script>
+
+<style lang="scss" scoped>
+@import './main.scss';
+</style>

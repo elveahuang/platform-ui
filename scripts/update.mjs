@@ -1,0 +1,19 @@
+import { resolve } from 'node:path';
+import { execTask, updateModule } from './utils.mjs';
+
+const root = resolve(process.cwd());
+console.log(`Current workspace - ${root}`);
+// 更新模块依赖
+await updateModule(resolve(root, './apps/admin'));
+await updateModule(resolve(root, './apps/mobile'));
+await updateModule(resolve(root, './apps/site'));
+await updateModule(resolve(root, './apps/webapp'));
+await updateModule(resolve(root, './commons/core'));
+await updateModule(resolve(root, './commons/mobile'));
+await updateModule(resolve(root, './commons/webapp'));
+await updateModule(resolve(root, './docs'));
+await updateModule(resolve(root));
+// 安装模块依赖
+await execTask(`pnpm install`, root);
+// 格式化代码
+await execTask(`pnpm run prettier`, root);
