@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{b as t,f as o,j as s}from"./index-DzmXIxkz.js";const c={},r=s("div",{class:"text-center"},"Custom Demo Page",-1),a=[r];function n(_,d){return t(),o("div",null,a)}const l=e(c,[["render",n]]);export{l as default};

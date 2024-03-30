@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{b as r,f as c}from"./index-DzmXIxkz.js";const o={},s={class:"app-divider"};function t(n,_){return r(),c("div",s)}const p=e(o,[["render",t]]);export{p as A};
