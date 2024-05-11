@@ -1,1 +1,0 @@
-import{b as r,e as o,w as s,h as a,t as n,N as c}from"./index-BFPp_0b4.js";/* empty css                */import{_}from"./_plugin-vue_export-helper-DlAUqK2U.js";const i={};function l(e,d){const t=c;return r(),o(t,{shadow:"never"},{title:s(()=>[a("div",null,n(e.$t("common.user_pages_user_center_title")),1)]),_:1})}const u=_(i,[["render",l]]);export{u as default};
