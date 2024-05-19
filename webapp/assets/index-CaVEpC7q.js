@@ -1,1 +1,0 @@
-import{_ as r,b as s,e as a,w as o,P as n,j as c,t as _}from"./index-CqV8-mTv.js";/* empty css                */const i={};function l(e,d){const t=n;return s(),a(t,{shadow:"never"},{title:o(()=>[c("div",null,_(e.$t("common.user_pages_user_center_title")),1)]),_:1})}const f=r(i,[["render",l]]);export{f as default};
