@@ -1,0 +1,1 @@
+import{_ as e,b as t,f as c,k as s}from"./index-C_ikakZ-.js";const n={},o=s("div",{class:"text-center"},"Module Index Page",-1),a=[o];function r(_,d){return t(),c("div",null,a)}const l=e(n,[["render",r]]);export{l as default};
