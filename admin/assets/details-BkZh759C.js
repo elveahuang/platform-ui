@@ -1,0 +1,1 @@
+import{_ as t,e as a,f as o,ab as c}from"./index-DdRhCfZT.js";const r={};function _(e,s){const n=c;return a(),o(n,{title:e.$t("common.announcement_management")},null,8,["title"])}const m=t(r,[["render",_]]);export{m as default};
