@@ -1,1 +1,0 @@
-import{_ as r,e as s,f as a,w as o,m as n,t as c,L as _}from"./index-BaYA8Hiy.js";/* empty css                */const i={};function l(e,d){const t=_;return s(),a(t,{shadow:"never"},{title:o(()=>[n("div",null,c(e.$t("common.user_pages_user_center_title")),1)]),_:1})}const f=r(i,[["render",l]]);export{f as default};
