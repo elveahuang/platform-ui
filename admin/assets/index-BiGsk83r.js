@@ -1,1 +1,0 @@
-import{_ as e,e as t,g as c,k as s}from"./index-D3_r0cba.js";const n={},o=s("div",{class:"text-center"},"Module Index Page",-1),a=[o];function r(_,d){return t(),c("div",null,a)}const l=e(n,[["render",r]]);export{l as default};

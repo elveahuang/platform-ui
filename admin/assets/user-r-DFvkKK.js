@@ -1,1 +1,0 @@
-import{Q as c,b1 as e}from"./index-D3_r0cba.js";const s=e.auth.user.type==="account"?"/api/v1/account/save":"/api/v1/user/save",u=a=>c(s,a),t=e.auth.user.type==="account"?"/api/v1/account/change-password":"/api/v1/user/change-password",p=a=>c(t,a),n=e.auth.user.type==="account"?"/api/v1/account/change-email":"/api/v1/user/change-email",r=a=>c(n,a);export{r as a,p as c,u};
