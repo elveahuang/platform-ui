@@ -1,1 +1,0 @@
-import{_ as t,e as a,f as o,aE as c}from"./index-C0tfck0c.js";const r={};function _(e,s){const n=c;return a(),o(n,{title:e.$t("common.announcement_management")},null,8,["title"])}const m=t(r,[["render",_]]);export{m as default};
