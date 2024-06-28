@@ -1,1 +1,0 @@
-import{x as s,ao as t}from"./index-CXPEtIHz.js";const c=t.auth.user.type==="account"?"/api/v1/account/save":"/api/v1/user/save",n=a=>s(c,a),o=t.auth.user.type==="account"?"/api/v1/account/change-password":"/api/v1/user/change-password",u=a=>s(o,a);export{u as c,n as u};
